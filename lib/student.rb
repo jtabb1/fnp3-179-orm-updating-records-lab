@@ -62,17 +62,9 @@ class Student
       SELECT * FROM students 
       WHERE name = ?
     SQL
-    # 
-    #
-    # fix the below so it can only call self one time
-    # 
-    self.new_from_db(
+    self.new_from_db( 
       DB[:conn].execute(sql, name)[0]
     )
-
-    # rw = DB[:conn].execute(sql, name).map do |rw|
-    #   self.new_from_db(rw)
-    # end.first
   end
 
   def update
